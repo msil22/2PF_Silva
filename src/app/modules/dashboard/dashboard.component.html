@@ -1,0 +1,19 @@
+<!-- CONTENEDOR -->
+<mat-drawer-container class="example-container" autosize>
+    <!-- MENU LATERAL -->
+    <mat-drawer [opened]="true" #drawer class="example-sidenav" mode="side">
+      <app-nav-menu />
+    </mat-drawer>
+    <!-- MENU LATERAL FIN -->
+  
+    <!-- AREA CONTENIDO -->
+    <div class="example-sidenav-content">
+      <app-toolbar (drawerToggle)="drawer.toggle()" />
+      <main style="padding: 1rem">
+        <!-- <app-students /> -->
+        <router-outlet />
+      </main>
+    </div>
+    <!-- AREA CONTENIDO FIN -->
+  </mat-drawer-container>
+  
