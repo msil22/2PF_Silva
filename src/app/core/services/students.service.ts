@@ -7,18 +7,17 @@ import { delay, interval, Observable, of } from 'rxjs';
 export class StudentsService {
   getStudentsPromise(): Promise<Student[]> {
     return new Promise<Student[]>((resolve, reject) => {
-      // reject('Error de conexion');
       setTimeout(() => {
         resolve([
           {
             id: generateRandomString(6),
-            name: 'Jill',
-            lastName: 'Valentine',
+            name: 'Matias',
+            lastName: 'Silva',
           },
           {
             id: generateRandomString(6),
-            name: 'Chris',
-            lastName: 'Redfield',
+            name: 'Luis',
+            lastName: 'Alberto',
           },
         ]);
       }, 3000);
@@ -30,13 +29,13 @@ export class StudentsService {
       const students = [
         {
           id: generateRandomString(6),
-          name: 'Jill',
-          lastName: 'Valentine',
+          name: 'Matías',
+          lastName: 'Silva',
         },
         {
           id: generateRandomString(6),
-          name: 'Chris',
-          lastName: 'Redfield',
+          name: 'Luis',
+          lastName: 'Alberto',
         },
       ];
 
@@ -47,12 +46,10 @@ export class StudentsService {
           lastName: 'ESTUDIENTE ' + students.length,
         });
 
-        // Emitimos los estudiantes
         subscriber.next(students);
 
-        // subscriber.error('Error al cargar estudiantes'); // Enviar un error a los subscriptores
         if (students.length === 10) {
-          subscriber.complete(); // Notifica al subscritor/es que este obs ya no va a emitir mas datos
+          subscriber.complete();
         }
       }, 1000);
     });
